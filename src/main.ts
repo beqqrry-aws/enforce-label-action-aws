@@ -39,6 +39,10 @@ function enforceBannedLabels(labels) {
     }
 }
 
+function getMultiline(): string[] {
+  const myMultilineInput = core.getMultilineInput('REQUIRED_LABELS_ANY_MULTI', { required: true });
+}
+
 function getInputArray(name): string[] {
   const rawInput = core.getInput(name, {required: false});
   return rawInput !== '' ? rawInput.split(',') : [];
