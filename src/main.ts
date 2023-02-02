@@ -6,7 +6,7 @@ async function run() {
     const labels = github.context!.payload!.pull_request!.labels;
 
     let multis = getMultiline();
-    enforceMultiLabels(multis);
+    enforceMultiLabels(labels);
     enforceAnyLabels(labels);
     enforceAllLabels(labels);
     enforceBannedLabels(labels);
@@ -17,9 +17,12 @@ async function run() {
 }
 
 function enforceMultiLabels(labels) {
-  labels.forEach(function (requiredLabelsAny) {
+  const requiredLabelsMulti: string[] = getInputArray('REQUIRED_LABELS_ANY_MULTI');
+
+  labels.forEach(function (requiredLabels) {
     console.log("multi label");
-    console.log(requiredLabelsAny);
+    console.log(requiredLabels);
+    console.log(requiredLabelsMulti);
 //     if (requiredLabelsAny.length > 0 && !requiredLabelsAny.some(requiredLabel => labels.find((l) => l.name === requiredLabel))) {
 //       const requiredLabelsMultiDescription = getInputString('REQUIRED_LABELS_ANY_DESCRIPTION', `Please select one of the required labels for this PR: ${requiredLabelsAny}`);
 //       core.setFailed(requiredLabelsMultiDescription);
