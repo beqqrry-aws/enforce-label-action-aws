@@ -16,12 +16,12 @@ async function run() {
 }
 
 function enforceMultiLabels(labels) {
-  foreach labels as requiredLabelsAny {
+  labels.forEach(function (requiredLabelsAny) {
     if (requiredLabelsAny.length > 0 && !requiredLabelsAny.some(requiredLabel => labels.find((l) => l.name === requiredLabel))) {
       const requiredLabelsMultiDescription = getInputString('REQUIRED_LABELS_ANY_DESCRIPTION', `Please select one of the required labels for this PR: ${requiredLabelsAny}`);
       core.setFailed(requiredLabelsAnyDescription);
     }    
-  }
+  });
 }
 
 function enforceAnyLabels(labels) {
