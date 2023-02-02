@@ -18,7 +18,8 @@ async function run() {
 
 function enforceMultiLabels(labels) {
   labels.forEach(function (requiredLabelsAny) {
-    console.write(requiredLabelsAny);
+    console.log("multi label");
+    console.log(requiredLabelsAny);
 //     if (requiredLabelsAny.length > 0 && !requiredLabelsAny.some(requiredLabel => labels.find((l) => l.name === requiredLabel))) {
 //       const requiredLabelsMultiDescription = getInputString('REQUIRED_LABELS_ANY_DESCRIPTION', `Please select one of the required labels for this PR: ${requiredLabelsAny}`);
 //       core.setFailed(requiredLabelsMultiDescription);
