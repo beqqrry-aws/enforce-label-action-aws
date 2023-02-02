@@ -50,7 +50,7 @@ function enforceBannedLabels(labels) {
 }
 
 function getMultiline(): string[] {
-  const myMultilineInput = core.getMultilineInput('REQUIRED_LABELS_ANY_MULTI', { required: true });
+  const myMultilineInput = core.getInput('REQUIRED_LABELS_ANY_MULTI', { required: true });
   return myMultilineInput;
 }
 
