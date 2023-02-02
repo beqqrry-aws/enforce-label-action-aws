@@ -5,6 +5,9 @@ async function run() {
   try {
     const labels = github.context!.payload!.pull_request!.labels;
 
+    console.log("all labels");
+    console.log(labels);
+    
     let multis = getMultiline();
     enforceMultiLabels(labels);
     enforceAnyLabels(labels);
