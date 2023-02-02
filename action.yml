@@ -9,6 +9,10 @@ inputs:
     description: 'Require at least one label'
   REQUIRED_LABELS_ANY_DESCRIPTION:
     description: 'Require at least one label description'
+  REQUIRED_LABELS_ANY_MULTI:
+    description: 'Require at least one label for multiple sets'
+  REQUIRED_LABELS_ANY_MULTI_DESCRIPTION:
+    description: 'Require at least one label description for multiple sets'
   REQUIRED_LABELS_ALL:
     description: 'Require all labels'
   REQUIRED_LABELS_ALL_DESCRIPTION:
