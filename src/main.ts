@@ -5,12 +5,22 @@ async function run() {
   try {
     const labels = github.context!.payload!.pull_request!.labels;
 
+    var multis = getMultiline();
     enforceAnyLabels(labels);
     enforceAllLabels(labels);
     enforceBannedLabels(labels);
 
   } catch (error) {
     core.setFailed(error.message);
+  }
+}
+
+function enforceMultiLabels(labels) {
+  foreach labels as requiredLabelsAny {
+    if (requiredLabelsAny.length > 0 && !requiredLabelsAny.some(requiredLabel => labels.find((l) => l.name === requiredLabel))) {
+      const requiredLabelsMultiDescription = getInputString('REQUIRED_LABELS_ANY_DESCRIPTION', `Please select one of the required labels for this PR: ${requiredLabelsAny}`);
+      core.setFailed(requiredLabelsAnyDescription);
+    }    
   }
 }
 
