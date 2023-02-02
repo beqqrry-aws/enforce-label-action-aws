@@ -5,7 +5,8 @@ async function run() {
   try {
     const labels = github.context!.payload!.pull_request!.labels;
 
-    var multis = getMultiline();
+    let multis = getMultiline();
+    enforceMultiLabels(multis);
     enforceAnyLabels(labels);
     enforceAllLabels(labels);
     enforceBannedLabels(labels);
